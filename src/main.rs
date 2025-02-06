@@ -13,6 +13,8 @@ use core::panic::PanicInfo;
 pub extern "C" fn _start() -> ! {
     println!("Hello world{}", "!");
 
+    moon_os::init();
+
     #[cfg(test)]
     test_main();
 
