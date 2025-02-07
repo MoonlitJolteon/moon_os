@@ -22,5 +22,5 @@ fn should_fail() {
 fn panic(_info: &PanicInfo) -> ! {
     serial_println!("[ok]");
     exit_qemu(QemuExitCode::Success);
-    loop {}
+    moon_os::hlt_loop();
 }

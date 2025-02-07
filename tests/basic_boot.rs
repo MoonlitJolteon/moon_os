@@ -11,7 +11,7 @@ use moon_os::println;
 pub extern "C" fn _start() -> ! {
     test_main();
 
-    loop {}
+    moon_os::hlt_loop();
 }
 
 #[test_case]
