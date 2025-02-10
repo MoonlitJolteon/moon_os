@@ -4,11 +4,11 @@
 #![test_runner(moon_os::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
+use bootloader::{entry_point, BootInfo};
 use core::panic::PanicInfo;
-use bootloader::{BootInfo, entry_point};
 
 use moon_os::println;
-use x86_64::structures::paging::{Page, Translate};
+use x86_64::structures::paging::Page;
 
 entry_point!(kernel_main);
 
@@ -29,8 +29,7 @@ fn kernel_main(boot_info: &'static BootInfo) -> ! {
 
     // Write the string "New!" to the screen through the new mapping
     let page_ptr: *mut u64 = page.start_address().as_mut_ptr();
-    unsafe { page_ptr.offset(400).write_volatile(0x_f021_f077_f065_f04e)};
-
+    unsafe { page_ptr.offset(400).write_volatile(0x_f021_f077_f065_f04e) };
 
     #[cfg(test)]
     test_main();

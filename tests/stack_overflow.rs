@@ -4,11 +4,11 @@
 
 use core::panic::PanicInfo;
 
-use moon_os::serial_print;
 use lazy_static::lazy_static;
+use moon_os::serial_print;
 use x86_64::structures::idt::InterruptDescriptorTable;
 
-use moon_os::{exit_qemu, QemuExitCode, serial_println};
+use moon_os::{exit_qemu, serial_println, QemuExitCode};
 use x86_64::structures::idt::InterruptStackFrame;
 
 extern "x86-interrupt" fn test_double_fault_handler(

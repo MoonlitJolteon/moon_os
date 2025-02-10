@@ -7,11 +7,11 @@
 
 use core::panic::PanicInfo;
 
+pub mod gdt;
+pub mod interrupts;
+pub mod memory;
 pub mod serial;
 pub mod vga_buffer;
-pub mod interrupts;
-pub mod gdt;
-pub mod memory;
 
 #[cfg(test)]
 use bootloader::{entry_point, BootInfo};
